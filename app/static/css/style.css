@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+}
+
+.price-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.price-card.highlight {
+  animation: glowEffect 1.5s ease;
+}
+
+@keyframes glowEffect {
+  0% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 0 0 rgba(74, 107, 255, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 20px 10px rgba(74, 107, 255, 0.6);
+  }
+
+  100% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 0 0 rgba(74, 107, 255, 0.4);
+  }
+}
+
+.crypto-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.crypto-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.crypto-info h2 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.price-info {
+  margin: 25px 0;
+}
+
+.price {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.change {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.change.positive {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.change.negative {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.price-range {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.range-label {
+  font-size: 0.9rem;
+  color: #a0a0c0;
+  margin-bottom: 8px;
+}
+
+.range-values {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.range-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.range-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 3px;
+  width: 50%;
+}
+
+.refresh-btn {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.refresh-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+}
+
+.last-update {
+  font-size: 0.85rem;
+  color: #a0a0c0;
+  margin-top: 15px;
+}
+
+.error-message {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+@media (max-width: 480px) {
+  .price-card {
+    padding: 20px;
+  }
+
+  .price {
+    font-size: 2.2rem;
+  }
+
+  .crypto-info h2 {
+    font-size: 1.5rem;
+  }
+}
