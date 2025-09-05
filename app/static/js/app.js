@@ -22,8 +22,8 @@ function updatePrice() {
         changeElement.className = `change ${data.change_24h >= 0 ? 'positive' : 'negative'}`;
 
         // Update min and max values (converting k to thousand)
-        const minValue = data.min >= 1000 ? (data.min / 1000).toFixed(3) + 'k' : data.min;
-        const maxValue = data.max >= 1000 ? (data.max / 1000).toFixed(3) + 'k' : data.max;
+        const minValue = data.min >= 1000 ? '$' + (data.min / 1000).toFixed(3) : data.min;
+        const maxValue = data.max >= 1000 ? '$' + (data.max / 1000).toFixed(3) : data.max;
 
         document.getElementById('min-price').textContent = minValue;
         document.getElementById('max-price').textContent = maxValue;
