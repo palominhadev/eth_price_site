@@ -8,7 +8,7 @@ API_KEY = environ.get('COINMARKETCAP_API_KEY')
 API_URL = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
 
-def get_ethereum_price(min_price, max_price, SYMBOL='ETH'):
+def get_ethereum_price(SYMBOL='ETH'):
     """
     Fetches current Ethereum price data from CoinMarketCap API.
 
@@ -49,8 +49,8 @@ def get_ethereum_price(min_price, max_price, SYMBOL='ETH'):
             return {
                 'price': round(price, 2),
                 'change_24h': round(percent_change_24h, 2),
-                'min': min_price,
-                'max': max_price,
+                'min': environ.get('MIN_PRICE'),
+                'max': environ.get('MAX_PRICE'),
                 'success': True
             }
         else:

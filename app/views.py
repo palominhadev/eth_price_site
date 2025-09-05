@@ -11,5 +11,5 @@ def home():
 
 @views.route('/api/price')
 def api_price():
-    price_data = get_ethereum_price(min_price=3850, max_price=4450)
+    price_data = get_ethereum_price()
     return jsonify(price_data)
