@@ -9,10 +9,13 @@
       </div>
       <div class="price-info">
         <div id="price" class="price">Loading...</div>
-        <div id="change" class="change">--</div>
+        <div class="stats-container">
+          <div id="change" class="change">--</div>
+        </div>
       </div>
       <div class="price-range">
-        <div class="range-label">{{ defi_pool_name }} Pool Price Range</div>
+        <div id="volume" class="volume">--</div>
+        <div class="range-label" hidden>{{ defi_pool_name }} Pool Price Range</div>
         <div class="range-values">
           <span id="min-price"></span>
           <span id="max-price"></span>
@@ -28,4 +31,4 @@
 
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-{% endblock%}
+{% endblock %}

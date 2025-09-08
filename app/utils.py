@@ -12,12 +12,10 @@ def get_ethereum_price(SYMBOL='ETH'):
     """
     Fetches current Ethereum price data from CoinMarketCap API.
 
-    Retrieves real-time price information and 24-hour change percentage,
-    returning formatted data with custom min/max range values.
+    Retrieves real-time price information, 24-hour change percentage,
+    and trading volume, returning formatted data with custom min/max range values.
 
     Args:
-        min_price (float): Minimum price value for display range
-        max_price (float): Maximum price value for display range
         SYMBOL (str, optional): Cryptocurrency symbol. Defaults to 'ETH'.
 
     Returns:
@@ -45,10 +43,12 @@ def get_ethereum_price(SYMBOL='ETH'):
             eth_data = data['data'][SYMBOL]
             price = eth_data['quote']['USD']['price']
             percent_change_24h = eth_data['quote']['USD']['percent_change_24h']
+            volume_24h = eth_data['quote']['USD']['volume_24h']
 
             return {
                 'price': round(price, 2),
                 'change_24h': round(percent_change_24h, 2),
+                'volume_24h': round(volume_24h, 2),
                 'min': environ.get('MIN_PRICE'),
                 'max': environ.get('MAX_PRICE'),
                 'success': True

@@ -21,6 +21,21 @@ function updatePrice() {
         changeElement.textContent = `${data.change_24h > 0 ? '+' : ''}${data.change_24h}%`;
         changeElement.className = `change ${data.change_24h >= 0 ? 'positive' : 'negative'}`;
 
+        // Update volume
+        const volumeElement = document.getElementById('volume');
+        if (volumeElement && data.volume_24h) {
+          // Format volume in millions/billions
+          let volumeText;
+          if (data.volume_24h >= 1000000000) {
+            volumeText = `Vol: $${(data.volume_24h / 1000000000).toFixed(2)}B`;
+          } else if (data.volume_24h >= 1000000) {
+            volumeText = `Vol: $${(data.volume_24h / 1000000).toFixed(2)}M`;
+          } else {
+            volumeText = `Vol: $${data.volume_24h.toLocaleString()}`;
+          }
+          volumeElement.textContent = volumeText;
+        }
+
         // Update min and max values (converting k to thousand)
         const minValue = data.min >= 1000 ? '$' + (data.min / 1000).toFixed(3) : data.min;
         const maxValue = data.max >= 1000 ? '$' + (data.max / 1000).toFixed(3) : data.max;
